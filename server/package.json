@@ -1,0 +1,79 @@
+{
+  "name": "quizdb-server",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon",
+    "setup": "yarn knex:up",
+    "test": "npm run test:integration:all",
+    "test:mocha": "node ./node_modules/mocha/bin/mocha",
+    "test:file": "yarn test:mocha",
+    "test:integration": "yarn test:mocha tests/setup.js",
+    "test:integration:all": "yarn test:mocha tests/setup.js tests/integration/**/*.spec.js",
+    "test:unit:all": "yarn test:mocha tests/unit/**/*.spec.js",
+    "lint:eslint": "eslint --fix",
+    "lint:markdownlint": "markdownlint",
+    "lint:prettier": "prettier --write --loglevel warn",
+    "lint:all:eslint": "yarn lint:eslint --ext .js .",
+    "lint:all:markdownlint": "yarn lint:markdownlint \"docs/*.md\" \"*.md\"",
+    "knex": "knex",
+    "docker": "docker-compose exec app yarn"
+  },
+  "dependencies": {
+    "@sailshq/connect-redis": "^3.2.1",
+    "@sailshq/lodash": "^3.10.3",
+    "@sailshq/socket.io-redis": "^5.2.0",
+    "axios": "^0.19.2",
+    "bcrypt": "5.x",
+    "cross-env": "^6.0.3",
+    "dotenv": "^8.2.0",
+    "grunt": "1.0.4",
+    "http-status": "^1.4.1",
+    "is-empty": "^1.2.0",
+    "jwt-simple": "0.5.1",
+    "knex": "^0.20.2",
+    "lodash": "^4.17.15",
+    "minio": "^7.0.12",
+    "moment": "^2.24.0",
+    "mysql2": "^2.0.1",
+    "nodemailer": "^6.5.0",
+    "sails": "^1.4.3",
+    "sails-hook-grunt": "^4.0.0",
+    "sails-hook-orm": "^3.0.1",
+    "sails-hook-sockets": "^2.0.0",
+    "sails-mysql": "^1.0.1",
+    "skipper-better-s3": "^2.3.0",
+    "skipper-s3": "^0.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "expect": "^23.6.0",
+    "jest-extended": "^0.11.2",
+    "mocha": "^5.2.0",
+    "nodemon": "^2.0.1",
+    "prettier": "^1.19.1",
+    "supertest": "^3.3.0"
+  },
+  "main": "app.js",
+  "author": "Cornata CLI - sailsv1 generator",
+  "license": "",
+  "engines": {
+    "node": ">=12"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "tests/*",
+      "docs/*",
+      "db/*",
+      "mochawesome-report",
+      "assets/*",
+      "tasks/*",
+      "views/*"
+    ]
+  }
+}

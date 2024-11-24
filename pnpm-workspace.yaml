@@ -1,0 +1,5 @@
+packages:
+  # all folders in the directory of `packages` and `apps`
+  - server
+  - web
+  - packages/*

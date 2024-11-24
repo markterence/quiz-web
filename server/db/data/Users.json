@@ -1,0 +1,29 @@
+[
+  {
+  "id": 1,
+  "email": "develo@example.com",
+  "name": "Andro Develo",
+  "username": "develo",
+  "password": "develo999",
+  "isEmailVerified": 1,
+  "avatar": "https://picsum.photos/64?random"
+ },
+ {
+  "id": 2,
+  "email":"ry@example.com",
+  "name":"Ryan Dahl",
+  "username":"ryan",
+  "password":"password",
+  "isEmailVerified": 0,
+  "avatar": "https://picsum.photos/64?random"
+ },
+ {
+   "id": 3,
+  "email":"rachael@example.com",
+  "name":"Rachael Shaw",
+  "username":"admin",
+  "password":"password",
+  "isEmailVerified": 1,
+  "avatar": "https://picsum.photos/64?random"
+ }
+]

@@ -1,0 +1,20 @@
+stages:
+  - build
+  - test
+  - docker-build
+
+build-image:
+  stage: docker-build
+  image: docker:latest
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^((master|main|staging|dev|review-.*$|ci-.*$)$)/'
+      when: manual
+      allow_failure: true
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - chmod +x ${CI_PROJECT_DIR}/scripts/wait-for-it.sh
+    - docker build --tag $CI_REGISTRY_IMAGE/ci:latest .
+    - docker push $CI_REGISTRY_IMAGE/ci:latest

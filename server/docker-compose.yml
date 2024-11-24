@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+  db:
+    image: mariadb:10.5
+    container_name: quizdb-server-db
+    env_file: ./.env
+    volumes:
+      - database:/var/lib/mysql
+    logging:
+      options:
+        max-size: '1m'
+        max-file: '2'
+    command: mysqld --sql-mode="NO_ENGINE_SUBSTITUTION"
+
+  app:
+    image: node:16-slim
+    container_name: quizdb-server
+    working_dir: /app
+    depends_on:
+      - db
+    volumes:
+      - dependencies:/app/node_modules
+      - .:/app
+    ports:
+      - '1337:1337'
+    tty: true
+    expose:
+      - '1337'
+    logging:
+      options:
+        max-size: '2m'
+        max-file: '3'
+
+volumes:
+  database:
+  dependencies:

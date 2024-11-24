@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@8.11.0",
+  "engines": {
+    "node": ">=16.17 || >=18"
+  },
+  "scripts": {
+    "dev:ionic": "cd vue-mobile && pnpm run serve",
+    "vue-web": "cd vue-web && pnpm run"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.1.1",
+    "eslint": "^8.54.0"
+  }
+}
